@@ -1,0 +1,289 @@
+public class Main {
+
+    static class MyArrayList {
+        String[] arr = new String[10];
+        int size = 0;
+
+        void addEnd(String subj) {
+            arr[size] = subj;
+            size++;
+            System.out.println(subj + " added at the end of ArrayList.");
+            listAll();
+        }
+
+        void addStart(String subj) {
+            for (int i = size; i > 0; i--) arr[i] = arr[i - 1];
+            arr[0] = subj;
+            size++;
+            System.out.println(subj + " added at the start of ArrayList.");
+            listAll();
+        }
+
+        void addAtIndex(int index, String subj) {
+            if (index < 0 || index > size) {
+                System.out.println("Invalid index.");
+                return;
+            }
+            for (int i = size; i > index; i--) arr[i] = arr[i - 1];
+            arr[index] = subj;
+            size++;
+            System.out.println(subj + " added at index " + index + " of ArrayList.");
+            listAll();
+        }
+
+        void listAll() {
+            System.out.print("[ArrayList] ");
+            for (int i = 0; i < size; i++) System.out.print(arr[i] + " ");
+            System.out.println();
+        }
+
+        void search(String subj) {
+            for (int i = 0; i < size; i++) {
+                if (arr[i].equals(subj)) {
+                    System.out.println(subj + " found at index " + i + " in ArrayList.");
+                    return;
+                }
+            }
+            System.out.println(subj + " not found in ArrayList.");
+        }
+
+        void clear() {
+            size = 0;
+            System.out.println("ArrayList cleared.");
+            listAll();
+        }
+    }
+
+    static class MyLinkedList {
+        class Node {
+            String subj;
+            Node next;
+            Node(String subj) { this.subj = subj; next = null; }
+        }
+
+        Node head;
+
+        void addEnd(String subj) {
+            Node n = new Node(subj);
+            if (head == null) head = n;
+            else {
+                Node currentNode = head;
+                while (currentNode.next != null) currentNode = currentNode.next;
+                currentNode.next = n;
+            }
+            System.out.println(subj + " added at the end of LinkedList.");
+            listAll();
+        }
+
+        void addStart(String subj) {
+            Node n = new Node(subj);
+            n.next = head;
+            head = n;
+            System.out.println(subj + " added at the start of LinkedList.");
+            listAll();
+        }
+
+        void addAtIndex(int index, String subj) {
+            if (index == 0) {
+                addStart(subj);
+                return;
+            }
+            Node currentNode = head;
+            int currentIndex = 0;
+            while (currentNode != null && currentIndex < index - 1) {
+                currentNode = currentNode.next;
+                currentIndex++;
+            }
+            if (currentNode == null) {
+                System.out.println("Invalid index.");
+                return;
+            }
+            Node n = new Node(subj);
+            n.next = currentNode.next;
+            currentNode.next = n;
+            System.out.println(subj + " added at index " + index + " of LinkedList.");
+            listAll();
+        }
+
+        void listAll() {
+            System.out.print("[LinkedList] ");
+            Node currentNode = head;
+            while (currentNode != null) {
+                System.out.print(currentNode.subj + " ");
+                currentNode = currentNode.next;
+            }
+            System.out.println();
+        }
+
+        void search(String subj) {
+            Node currentNode = head;
+            int currentIndex = 0;
+            while (currentNode != null) {
+                if (currentNode.subj.equals(subj)) {
+                    System.out.println(subj + " found at index " + currentIndex + " in LinkedList.");
+                    return;
+                }
+                currentNode = currentNode.next;
+                currentIndex++;
+            }
+            System.out.println(subj + " not found in LinkedList.");
+        }
+
+        void clear() {
+            head = null;
+            System.out.println("LinkedList cleared.");
+            listAll();
+        }
+    }
+
+    static class MyStack {
+        String[] arr = new String[10];
+        int top = -1;
+
+        void push(String subj) {
+            top++;
+            arr[top] = subj;
+            System.out.println(subj + " pushed to Stack.");
+            listAll();
+        }
+
+        void pop() {
+            if (top == -1) {
+                System.out.println("Stack is empty.");
+                return;
+            }
+            String subj = arr[top];
+            top--;
+            System.out.println(subj + " popped from Stack.");
+            listAll();
+        }
+
+        void listAll() {
+            System.out.print("[Stack] ");
+            for (int i = 0; i <= top; i++) System.out.print(arr[i] + " ");
+            System.out.println();
+        }
+
+        void clear() {
+            top = -1;
+            System.out.println("Stack cleared.");
+            listAll();
+        }
+    }
+
+    static class MyQueue {
+        String[] arr = new String[10];
+        int front = 0, rear = 0;
+
+        void enqueue(String subj) {
+            arr[rear] = subj;
+            rear++;
+            System.out.println(subj + " enqueued to Queue.");
+            listAll();
+        }
+
+        void dequeue() {
+            if (front == rear) {
+                System.out.println("Queue is empty.");
+                return;
+            }
+            String subj = arr[front];
+            front++;
+            System.out.println(subj + " dequeued from Queue.");
+            listAll();
+        }
+
+        void listAll() {
+            System.out.print("[Queue] ");
+            for (int i = front; i < rear; i++) System.out.print(arr[i] + " ");
+            System.out.println();
+        }
+
+        void clear() {
+            front = 0;
+            rear = 0;
+            System.out.println("Queue cleared.");
+            listAll();
+        }
+    }
+
+    static class BST {
+        class Node {
+            String subj;
+            Node left, right;
+            Node(String subj) { this.subj = subj; left = null; right = null; }
+        }
+
+        Node root;
+
+        void add(String subj) {
+            root = insert(root, subj);
+            System.out.println(subj + " added to Tree.");
+            listAll();
+        }
+
+        Node insert(Node node, String subj) {
+            if (node == null) return new Node(subj);
+            if (subj.compareTo(node.subj) < 0) node.left = insert(node.left, subj);
+            else node.right = insert(node.right, subj);
+            return node;
+        }
+
+        void listAll() {
+            System.out.print("[Tree inorder] ");
+            inorder(root);
+            System.out.println();
+        }
+
+        void inorder(Node node) {
+            if (node == null) return;
+            inorder(node.left);
+            System.out.print(node.subj + " ");
+            inorder(node.right);
+        }
+
+        void clear() {
+            root = null;
+            System.out.println("Tree cleared.");
+            listAll();
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("School Subjects");
+
+        MyArrayList arrList = new MyArrayList();
+        arrList.addEnd("Math");
+        arrList.addStart("English");
+        arrList.addAtIndex(1, "Science");
+        arrList.search("Science");
+        arrList.clear();
+
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.addEnd("History");
+        linkedList.addStart("Geography");
+        linkedList.addAtIndex(1, "Biology");
+        linkedList.search("Biology");
+        linkedList.clear();
+
+        MyStack stack = new MyStack();
+        stack.push("Assignment1");
+        stack.push("Assignment2");
+        stack.pop();
+        stack.clear();
+
+        MyQueue queue = new MyQueue();
+        queue.enqueue("Student1");
+        queue.enqueue("Student2");
+        queue.dequeue();
+        queue.clear();
+
+        BST tree = new BST();
+        tree.add("TeacherA");
+        tree.add("TeacherC");
+        tree.add("TeacherB");
+        tree.clear();
+
+        System.out.println("End of Demo");
+    }
+}
