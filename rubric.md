@@ -27,8 +27,19 @@ The project demonstrates basic encapsulation through data hiding but lacks advan
 ### 4. Base Grade (10%)
 **Score:** 5/5
 
+### 5. Extra Points (up to 6)
+
+**Features:** 1/5
+- Console basic
+
+**Code Quality:** 0.5/1.0
+- Variable naming: 0.25/0.5
+- Code organization: 0.25/0.5
+
+**Extra Points Total:** +1.5
+
 ---
 
-## Final Grade: 60/100
+## Final Grade: 60 + 1.5 = **61.5/100**
 
 *Assessment generated based on project analysis.*
