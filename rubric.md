@@ -7,8 +7,8 @@
 ## Grading Breakdown
 
 ### 1. Class Diagram Completeness (25%)
-**Score:** 1/5
-**Notes:** No class diagram found in the project. The repository contains only code files (java.main and STUDYZONE.md) without any visual UML or class diagram documentation. While the STUDYZONE.md file provides a description of the project, it lacks any visual representation of class relationships and structure.
+**Score:** 3/5
+**Notes:** UML diagram provided via Figma (uml.png). The diagram shows a hierarchical component structure with multiple classes and their methods, demonstrating the Study Timer system architecture. However, the diagram lacks proper UML notation - classes are not presented in standard UML format with clear separation of attributes and methods, and relationships between classes are shown as simple flowchart-style connections rather than proper UML associations/compositions with cardinalities. The diagram provides a basic overview but is incomplete from a formal UML perspective.
 
 ### 2. Java Program - OOP Concepts (50%)
 **Score:** 2/5
@@ -29,6 +29,6 @@ The project demonstrates basic encapsulation through data hiding but lacks advan
 
 ---
 
-## Final Grade: 50/100
+## Final Grade: 60/100
 
 *Assessment generated based on project analysis.*
