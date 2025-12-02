@@ -21,8 +21,8 @@
 The project demonstrates basic encapsulation through data hiding but lacks advanced OOP concepts like inheritance hierarchies, abstract classes, or polymorphic behavior. The code is more procedural in nature, focusing on data structures rather than object-oriented design patterns. This appears to be more of a Data Structures project than an OOP project.
 
 ### 3. Git Usage & Collaboration (15%)
-**Score:** 2/5
-**Notes:** Minimal collaboration with only 4 total commits from 2 contributors: richardlorenzperez-cpu (3 commits) and Michael Ong (1 commit). The very low commit count suggests limited use of version control, possibly with most work done in a single session or offline. This indicates minimal collaborative development or git workflow practices.
+**Score:** 3/5
+**Notes:** Solo project with 4 commits by richardlorenzperez-cpu. Adjusted for solo work - basic commit history for individual development.
 
 ### 4. Base Grade (10%)
 **Score:** 5/5
@@ -40,6 +40,6 @@ The project demonstrates basic encapsulation through data hiding but lacks advan
 
 ---
 
-## Final Grade: 60 + 1.5 = **61.5/100**
+## Final Grade: 63 + 1.5 = **64.5/100**
 
 *Assessment generated based on project analysis.*
